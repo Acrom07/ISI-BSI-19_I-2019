@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="CSS.css" rel="stylesheet" type="text/css">
+</head>
+
+<header id="Cabeza">
+	EJERCCIO 6 JAVASCRIPT
+</header>
+
+<body>
+	<p style="margin-left:600px; margin-top: 100px;">Digite un Numero</p>
+	<input id="Texto1" type="number" Value="Digite un numero" name="Numero"> 
+	<input id="Boton4" type="button" value="CALCULAR" onclick="abrir();"/>
+	<input id="Texto2" type="number" Value="Resultado" name="Numero">
+    <input id="Boton5" type="button" value="LIMPIAR" onclick="limpiar();"/>
+
+		<script type="text/javascript">
+
+		function abrir(){
+			var total = 1; 
+			var x = document.getElementById("Texto1").value;
+			for (i=1; i<=x; i++) {
+				total = total * i; 
+			} 
+			document.getElementById("Texto2").value = total;	
+			}
+	
+		function limpiar(){
+			document.getElementById("Texto1").value="";	
+			document.getElementById("Texto2").value="";	
+			}
+
+		
+
+		</script>
+
+</body>
+
+</html>

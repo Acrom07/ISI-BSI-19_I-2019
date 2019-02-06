@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="CSS.css" rel="stylesheet" type="text/css">
+</head>
+
+<header id="Cabeza">
+	EJERCCIO 7 JAVASCRIPT
+</header>
+
+<body>
+
+	<p style="margin-left:555px; margin-top: 100px;">Digite o Seleccione un Numero</p>
+	<input id="Texto3" type="number" Value="Digite un numero" name="Numero">
+	<p id="lbResultado" style="margin-left:55px; margin-top:70px; text-align:center; color:red;">Resultado</p>
+	<input id="Boton6" type="button" value="Validar" onclick="abrir();"/>
+	
+
+	<script type="text/javascript">
+
+		function abrir(){
+			
+			var x = document.getElementById("Texto3").value;
+			if (x%2==0){
+				document.getElementById('lbResultado').innerHTML = "El Numero es par";
+			}else{
+				document.getElementById('lbResultado').innerHTML = "El Numero es impar";
+			}
+
+			}
+		
+
+		</script>
+
+
+</body>
+
+</html>

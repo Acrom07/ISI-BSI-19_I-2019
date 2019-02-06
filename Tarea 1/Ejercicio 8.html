@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="CSS.css" rel="stylesheet" type="text/css">
+</head>
+
+<header id="Cabeza">
+	EJERCCIO 8 JAVASCRIPT
+</header>
+
+<body>
+	<p style="margin-left:560px; margin-top: 50px;">Digite una palabra</p>
+	<input id="Texto4" type="text" name="Numero">
+	<p id="lbValidacion" style="margin-top:70px; text-align:center; color:red;">Resultado</p>
+	<input id="Boton7" type="button" value="Validar" onclick="abrir();"/>
+
+	<script type="text/javascript">
+		
+		function abrir(){
+			
+			var x = document.getElementById("Texto4").value.trim();
+
+			const ValidaTex = {
+    		"Minuscula": /^[a-z ]+$/,
+    		"Mayuscula": /^[A-Z ]+$/,
+    		"Ambas": /^[A-Za-z ]+$/
+  			}
+
+  			if (ValidaTex.Minuscula.test(x)) {
+		    document.getElementById('lbValidacion').innerHTML = "Contiene solo minusculas";
+		    }else if (ValidaTex.Mayuscula.test(x)) {
+		    document.getElementById('lbValidacion').innerHTML = "Contiene solo mayusculas";
+		    }else if (ValidaTex.Ambas.test(x)) {
+		    document.getElementById('lbValidacion').innerHTML = "Contiene minusculas y mayusculas";
+		    }else {
+		    	document.getElementById('lbValidacion').innerHTML = "El valor ingresado no es texto";
+		    }
+			
+		 }
+
+	</script>
+
+</body>
+</html>
