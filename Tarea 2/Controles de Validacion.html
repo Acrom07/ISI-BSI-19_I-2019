@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Controles de Validacion</title>
+    <link rel="stylesheet" href="Validacion.css">
+  </head>
+  <body>
+    <h1> Controles de Validacion</h1>
+
+    <form class="box" action="Validar.php" method="post">
+      <a href="#">
+        <img type="Icono" src="D:\progra\Tarea 2\Usuario.png" alt="">
+      </a>
+      <input id="Texto1" type="text" name="Nombre" value=""  placeholder="Nombre con Apellido"><br><br><br>
+      <a href="#">
+        <img type="Icono" src="D:\progra\Tarea 2\password.png" alt="">
+      </a>
+      <input id="Texto2" type="password" name="Pass" value=""  placeholder="Password"><br><br><br>
+      <a href="#">
+        <img type="Icono" src="D:\progra\Tarea 2\email.png" alt="">
+      </a>
+      <input id="Texto3" type="text" name="Correo" value=""  placeholder="E-mail"><br><br><br>
+      <a href="#">
+        <img type="Icono" src="D:\progra\Tarea 2\fecha.png" alt="">
+      </a>
+      <input id="Texto4" type="text" name="Fnacimiento" value=""  placeholder="Fecha de Nacimiento"><br><br><br>
+      <a href="#">
+        <img type="Icono" src="D:\progra\Tarea 2\comodin.png" alt="">
+      </a>
+      <input id="Texto5" type="text" name="Comodin" value=""  placeholder="Comodin"><br><br><br>
+      <input id="Boton" type="button" value="Validar" onclick="abrir();"/>
+      <button type="submit" value="submit">Enviar Formulario</button>
+    </form>
+
+    <p id="Validar" style="margin-top:450px; text-align:center; color:white;">Resultado</p>
+
+    <script type="text/javascript">
+
+    function abrir(){
+
+			var Nombre = document.getElementById("Texto1").value;
+      var Pass = document.getElementById("Texto2").value;
+      var Correo = document.getElementById("Texto3").value;
+      var Fnacimiento = document.getElementById("Texto4").value;
+      var Comodin = document.getElementById("Texto5").value;
+			const ValidaTex = {
+    		"Vnombre": /^[a-zA-Z]+\.[a-zA-Z]+$/,
+    		"Vpass": /^[a-zA-Z0-9!@#\$%\^&\*\?]+$/,
+    		"Vcorreo": /^[a-zA-Z0-9_\-\.~]{2,}@[a-zA-Z0-9_\-\.~]{2,}\.[a-zA-Z]{2,4}$/,
+        "Vfnacimiento": /^\d{2}\/\d{2}\/\d{4}$/
+  			}
+        if (ValidaTex.Vnombre.test(Nombre)==false) {
+		    document.getElementById('Validar').innerHTML = "El Formato de Nombre es incorrecto";
+        }else if (ValidaTex.Vpass.test(Pass)==false) {
+		    document.getElementById('Validar').innerHTML = "El Formato de Contraseña es incorrecto";
+        }else if (ValidaTex.Vcorreo.test(Correo)==false) {
+		    document.getElementById('Validar').innerHTML = "El Formato de Correo es incorrecto";
+        }else if (ValidaTex.Vfnacimiento.test(Fnacimiento)==false) {
+		    document.getElementById('Validar').innerHTML = "El Formato de Fecha es incorrecto";
+		    }
+        else {
+          document.getElementById('Validar').innerHTML = "El Formulario se lleno correctamente";
+        }
+      }
+
+    </script>
+
+  </body>
+</html>
