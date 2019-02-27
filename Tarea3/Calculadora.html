@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calculadora</title>
+  </head>
+  <body>
+
+  <input id="Valor1" type="number" placeholder="Valor1" name="V1" required="">
+  <select id="op" class="" name="Operacion" type"text">
+    <option value="Sumar">Suma</option>
+    <option value="Restar">Resta</option>
+    <option value="Multiplicar">Multiplicacion</option>
+    <option value="Dividir">Division</option>
+  </select>
+  <input id="Valor2" type="number" placeholder="Valor2" name="V2" required="">
+  <button type="submit" onclick="loadLog()">Calcular</button><br><br>
+
+  <p id="resultado" style="margin-top:6px; text-align:center; color:black;">Resultado</p>
+
+  <script>
+
+  function loadLog() {
+  var Va1 = document.getElementById('Valor1').value;
+  var Ope = document.getElementById('op').value;
+  var Va2= document.getElementById('Valor2').value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (xhttp.readyState == 4 && xhttp.status == 200) {
+  document.getElementById("resultado").innerHTML = xhttp.responseText;
+  }
+  };
+  xhttp.open("POST", "Calculo.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("V1="+Va1+"&Operacion="+Ope+"&V2="+Va2+"");
+  }
+  </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calculadora</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+  <input id="Valor1" type="number" placeholder="Valor1" name="V1" required="">
+  <select id="op" class="" name="Operacion" type"text">
+    <option value="Sumar">Suma</option>
+    <option value="Restar">Resta</option>
+    <option value="Multiplicar">Multiplicacion</option>
+    <option value="Dividir">Division</option>
+  </select>
+  <input id="Valor2" type="number" placeholder="Valor2" name="V2" required="">
+  <button type="submit" onclick="loadLog()">Calcular</button><br><br>
+
+  <p id="resultado" style="margin-top:6px; text-align:left; color:black;">Resultado</p>
+
+  <script>
+
+  function loadLog() {
+  var Va1 = document.getElementById('Valor1').value;
+  var Ope = document.getElementById('op').value;
+  var Va2= document.getElementById('Valor2').value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (xhttp.readyState == 4 && xhttp.status == 200) {
+  document.getElementById("resultado").innerHTML = xhttp.responseText;
+  }
+  };
+    $(document).ready(function(){
+    $("#Valor1","#Valor2","#op").click(function(loadLog){
+    loadLog.preventDefault();
+    $("#resultado").load("Calculo2.php", {$resul}, function(){
+    alert("recibidos los datos por ajax"); });
+
+  }
+  </script>
+
+  </body>
+
+</html>
